@@ -4,3 +4,12 @@ dist/
 .env
 .vscode/
 .history/
+
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/bazel-out
+
+# Miscellaneous
+/.angular/cache
