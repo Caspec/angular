@@ -1,0 +1,10 @@
+<div>
+  <ul>
+    <li *ngFor="let user of users">
+    <button (click)="onSelectUser(user)">
+      <img [src]="getUserAvatar(user.avatar)" alt="{{ user.name }}" />
+      <span>{{ user.name }}</span>
+    </button>
+    </li>
+  </ul>
+</div>

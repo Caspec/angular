@@ -1,0 +1,83 @@
+div {
+  border-radius: 6px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.5rem;
+  color: #c3b3d1;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  width: 100%;
+  min-width: 10rem;
+  text-align: left;
+}
+
+button:hover,
+button:active,
+.active {
+  background-color: #0a070f;
+  color: #150722;
+}
+
+img {
+  width: 2rem;
+  object-fit: contain;
+  border-radius: 50%;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+}
+
+span {
+  margin: 0;
+  padding: 0;
+  font-size: 0.8rem;
+  font-weight: normal;
+}
+
+/* Style the container */
+ul {
+  list-style: none; /* Remove default bullet points */
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Space between items */
+}
+
+/* Style each list item */
+li {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  background: #f8f9fa; /* Light gray background */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Hover effect */
+li:hover {
+  transform: scale(1.02);
+  background: #e9ecef; /* Slightly darker background on hover */
+}
+
+/* Style the avatar image */
+li img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; /* Make it circular */
+  margin-right: 15px; /* Space between image and text */
+  border: 2px solid #000; /* Blue border */
+}
+
+/* Style the text */
+li span {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}

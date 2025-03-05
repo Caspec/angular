@@ -1,0 +1,5 @@
+<div *ngIf="user">
+  <h2>Selected User</h2>
+  <p>Name: {{ user.name }}</p>
+  <img [src]="getUserAvatar(user.avatar)" alt="{{ user.name }}" />
+</div>
