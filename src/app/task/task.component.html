@@ -1,5 +1,24 @@
-<div *ngIf="user">
-  <h2>Selected User</h2>
-  <p>Name: {{ user.name }}</p>
-  <img [src]="getUserAvatar(user.avatar)" alt="{{ user.name }}" />
+<div>
+  @if (user) {
+  <section id="tasks">
+    <header>
+      <menu>
+        <input class="" #taskInput type="text" placeholder="New Task" />
+        <button (click)="addTask(taskInput.value); taskInput.value = ''">
+          Add Task
+        </button>
+      </menu>
+      <h2>{{ user.name }}</h2>
+      <img [src]="getUserAvatar(user.avatar)" alt="{{ user.name }}" />
+    </header>
+    <ul>
+      @for (taskItem of task; track taskItem.id) {
+      <li>
+        <app-task-item [task]="taskItem" />
+      </li>
+      }
+    </ul>
+  </section>
+
+  }
 </div>

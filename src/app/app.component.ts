@@ -4,14 +4,13 @@ import { UserComponent } from './user/user.component';
 import { TaskComponent } from './task/task.component';
 import { DUMMY_USERS } from './dummy';
 import { User } from './user/user.model';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [HeaderComponent, UserComponent, TaskComponent, CommonModule],
+  imports: [HeaderComponent, UserComponent, TaskComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'first-app';

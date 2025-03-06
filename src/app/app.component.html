@@ -6,5 +6,9 @@
       <app-user [users]="users" (select)="onSelectUser($event)" />
     </li>
   </ul>
-  <app-task *ngIf="selectedUser" [user]="selectedUser" />
+  @if (selectedUser) {
+  <app-task [user]="selectedUser"></app-task>
+  } @else {
+  <p>Select a user to see their tasks</p>
+  }
 </main>

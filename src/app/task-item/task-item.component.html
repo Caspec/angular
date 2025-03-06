@@ -1,0 +1,11 @@
+<article>
+  @if (task) {
+  <h2>{{ task.title }}</h2>
+  <time>{{ task.time }}</time>
+  <p>{{ task.summary }}</p>
+  <p class="actions">
+    <button>Edit</button>
+    <button>Delete</button>
+  </p>
+  }
+</article>

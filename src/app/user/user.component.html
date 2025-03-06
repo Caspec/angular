@@ -1,10 +1,12 @@
 <div>
   <ul>
-    <li *ngFor="let user of users">
-    <button (click)="onSelectUser(user)">
-      <img [src]="getUserAvatar(user.avatar)" alt="{{ user.name }}" />
-      <span>{{ user.name }}</span>
-    </button>
+    @for (user of users; track user.id) {
+    <li>
+      <button (click)="onSelectUser(user)">
+        <img [src]="getUserAvatar(user.avatar)" alt="{{ user.name }}" />
+        <span>{{ user.name }}</span>
+      </button>
     </li>
+    }
   </ul>
 </div>
