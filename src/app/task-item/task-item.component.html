@@ -3,9 +3,14 @@
   <h2>{{ task.title }}</h2>
   <time>{{ task.time }}</time>
   <p>{{ task.summary }}</p>
-  <p class="actions">
-    <button>Edit</button>
-    <button>Delete</button>
-  </p>
-  }
+  <div class="actions">
+    <button (click)="toggleEdit(task.id)">Edit</button>
+    <button (click)="deleteTask(task.id)">Delete</button>
+  </div>
+  @if (editTaskId === task.id) {
+  <div class="actions">
+    <input #taskInput type="text" [value]="task.title" />
+    <button (click)="saveTask(task.id, taskInput.value)">Save</button>
+  </div>
+  } }
 </article>

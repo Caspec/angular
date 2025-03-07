@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from '../task/task.model';
 
 @Component({
@@ -9,4 +9,21 @@ import { Task } from '../task/task.model';
 })
 export class TaskItemComponent {
   @Input() task: Task | null = null;
+  @Output() taskDeleted = new EventEmitter<string>();
+  @Output() editTask = new EventEmitter<{ id: string; title: string }>();
+  editTaskId: string | null = null;
+
+  deleteTask(taskId: string) {
+    this.taskDeleted.emit(taskId);
+  }
+
+  toggleEdit(taskId: string) {
+    this.editTaskId = this.editTaskId === taskId ? null : taskId;
+  }
+
+  saveTask(taskId: string, newTitle: string) {
+    if (!newTitle.trim()) return;
+    this.editTask.emit({ id: taskId, title: newTitle });
+    this.editTaskId = null;
+  }
 }

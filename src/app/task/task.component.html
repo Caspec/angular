@@ -3,7 +3,7 @@
   <section id="tasks">
     <header>
       <menu>
-        <input class="" #taskInput type="text" placeholder="New Task" />
+        <input #taskInput type="text" placeholder="New Task" />
         <button (click)="addTask(taskInput.value); taskInput.value = ''">
           Add Task
         </button>
@@ -14,7 +14,11 @@
     <ul>
       @for (taskItem of task; track taskItem.id) {
       <li>
-        <app-task-item [task]="taskItem" />
+        <app-task-item
+          [task]="taskItem"
+          (taskDeleted)="deleteTask($event)"
+          (editTask)="updateTaskTitle($event)"
+        />
       </li>
       }
     </ul>

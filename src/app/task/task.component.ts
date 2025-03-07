@@ -14,6 +14,7 @@ import { Task } from '../task/task.model';
 export class TaskComponent {
   @Input() user: User | null = null;
   task: Task[] = DUMMY_TASK;
+  editTaskId: string | null = null;
 
   getUserAvatar(avatar: string): string {
     return `assets/users/${avatar}`;
@@ -29,5 +30,15 @@ export class TaskComponent {
       completed: false,
     };
     this.task.push(newTask);
+  }
+
+  deleteTask(taskId: string) {
+    this.task = this.task.filter((task) => task.id !== taskId);
+  }
+
+  updateTaskTitle(updatedTask: { id: string; title: string }) {
+    this.task = this.task.map((task) =>
+      task.id === updatedTask.id ? { ...task, title: updatedTask.title } : task
+    );
   }
 }
