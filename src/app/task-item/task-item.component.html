@@ -3,6 +3,7 @@
   <h2>{{ task.title }}</h2>
   <time>{{ task.time }}</time>
   <p>{{ task.summary }}</p>
+  <p>{{ task.completed ? "completed" : "not completed" }}</p>
   <div class="actions">
     <button (click)="toggleEdit(task.id)">Edit</button>
     <button (click)="deleteTask(task.id)">Delete</button>

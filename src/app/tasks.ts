@@ -4,7 +4,7 @@ export const DUMMY_TASK = [
     title: 'Task 1',
     time: '1234567890',
     summary: 'abc',
-    completed: false,
+    completed: true,
   },
   {
     id: 't2',
