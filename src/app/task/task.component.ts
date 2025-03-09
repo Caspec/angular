@@ -20,14 +20,14 @@ export class TaskComponent {
     return `assets/users/${avatar}`;
   }
 
-  addTask(title: string) {
+  addTask(title: string, completed: boolean) {
     if (!title.trim()) return;
     const newTask = {
       id: (this.task.length + 1).toString(),
       title,
       time: '12:00',
       summary: 'This is a summary',
-      completed: false,
+      completed: completed,
     };
     this.task.push(newTask);
   }

@@ -4,7 +4,17 @@
     <header>
       <menu>
         <input #taskInput type="text" placeholder="New Task" />
-        <button (click)="addTask(taskInput.value); taskInput.value = ''">
+        <label>
+          <input #taskCompleted type="checkbox" />
+          Completed
+        </label>
+        <button
+          (click)="
+            addTask(taskInput.value, taskCompleted.checked);
+            taskInput.value = '';
+            taskCompleted.checked = false
+          "
+        >
           Add Task
         </button>
       </menu>
