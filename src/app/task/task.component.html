@@ -3,15 +3,22 @@
   <section id="tasks">
     <header>
       <menu>
-        <input #taskInput type="text" placeholder="New Task" />
+        <input #taskTitle type="text" placeholder="New Task" />
+        <input
+          class="mt-5"
+          #taskSummary
+          type="text"
+          placeholder="New Summary"
+        />
         <label>
           <input #taskCompleted type="checkbox" />
           Completed
         </label>
         <button
           (click)="
-            addTask(taskInput.value, taskCompleted.checked);
-            taskInput.value = '';
+            addTask(taskTitle.value, taskSummary.value, taskCompleted.checked);
+            taskTitle.value = '';
+            taskSummary.value = '';
             taskCompleted.checked = false
           "
         >
