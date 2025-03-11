@@ -9,9 +9,25 @@
     <button (click)="deleteTask(task.id)">Delete</button>
   </div>
   @if (editTaskId === task.id) {
-  <div class="actions">
-    <input #taskInput type="text" [value]="task.title" />
-    <button (click)="saveTask(task.id, taskInput.value)">Save</button>
+  <div class="actions mt-5">
+    <div class="mb-5">
+      Title: <input #taskTitle type="text" [value]="task.title" /> <br />
+      Summary: <input #taskSummary type="text" [value]="task.summary" /> <br />
+      Completed:
+      <input #taskCompleted type="checkbox" [checked]="task.completed" />
+    </div>
+    <button
+      (click)="
+        saveTask(
+          task.id,
+          taskTitle.value,
+          taskSummary.value,
+          taskCompleted.checked
+        )
+      "
+    >
+      Save
+    </button>
   </div>
   } }
 </article>

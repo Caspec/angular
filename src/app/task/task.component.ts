@@ -36,9 +36,21 @@ export class TaskComponent {
     this.task = this.task.filter((task) => task.id !== taskId);
   }
 
-  updateTaskTitle(updatedTask: { id: string; title: string }) {
+  updateTask(updatedTask: {
+    id: string;
+    title: string;
+    summary: string;
+    completed: boolean;
+  }) {
     this.task = this.task.map((task) =>
-      task.id === updatedTask.id ? { ...task, title: updatedTask.title } : task
+      task.id === updatedTask.id
+        ? {
+            ...task,
+            title: updatedTask.title,
+            summary: updatedTask.summary,
+            completed: updatedTask.completed,
+          }
+        : task
     );
   }
 }
