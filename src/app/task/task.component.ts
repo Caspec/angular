@@ -15,6 +15,17 @@ export class TaskComponent {
   @Input() user: User | null = null;
   task: Task[] = DUMMY_TASK;
   editTaskId: string | null = null;
+  searchQuery: string = '';
+
+  get filteredTasks(): Task[] {
+    return this.task.filter((task) =>
+      task.title.toLowerCase().includes(this.searchQuery.toLowerCase())
+    );
+  }
+
+  setSearchQuery(query: string) {
+    this.searchQuery = query;
+  }
 
   getUserAvatar(avatar: string): string {
     return `assets/users/${avatar}`;

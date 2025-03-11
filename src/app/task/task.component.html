@@ -3,33 +3,49 @@
   <section id="tasks">
     <header>
       <menu>
-        <input #taskTitle type="text" placeholder="New Task" />
-        <input
-          class="mt-5"
-          #taskSummary
-          type="text"
-          placeholder="New Summary"
-        />
-        <label>
-          <input #taskCompleted type="checkbox" />
-          Completed
-        </label>
-        <button
-          (click)="
-            addTask(taskTitle.value, taskSummary.value, taskCompleted.checked);
-            taskTitle.value = '';
-            taskSummary.value = '';
-            taskCompleted.checked = false
-          "
-        >
-          Add Task
-        </button>
+        <div class="search-container">
+          <label for="searchInput">Search</label>
+          <input
+            #searchInput
+            id="searchInput"
+            type="text"
+            placeholder="Search tasks..."
+            (input)="setSearchQuery(searchInput.value)"
+          />
+        </div>
+        <div class="myx-30">
+          <input #taskTitle type="text" placeholder="New Task" />
+          <input
+            class="mt-5"
+            #taskSummary
+            type="text"
+            placeholder="New Summary"
+          />
+          <label>
+            <input #taskCompleted type="checkbox" />
+            Completed
+          </label>
+          <button
+            (click)="
+              addTask(
+                taskTitle.value,
+                taskSummary.value,
+                taskCompleted.checked
+              );
+              taskTitle.value = '';
+              taskSummary.value = '';
+              taskCompleted.checked = false
+            "
+          >
+            Add Task
+          </button>
+        </div>
       </menu>
       <h2>{{ user.name }}</h2>
       <img [src]="getUserAvatar(user.avatar)" alt="{{ user.name }}" />
     </header>
     <ul>
-      @for (taskItem of task; track taskItem.id) {
+      @for (taskItem of filteredTasks; track taskItem.id) {
       <li>
         <app-task-item
           [task]="taskItem"

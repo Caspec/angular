@@ -1,9 +1,10 @@
 #tasks {
-  padding: 1rem;
+  padding: 0 1rem 1rem 1rem;
   border-radius: 8px;
   min-height: 60vh;
   overflow: hidden;
   background-color: #3a2c54;
+  margin-bottom: 20px;
 }
 
 h2 {
@@ -62,6 +63,74 @@ ul {
 
 .mt-5 {
   margin-top: 5px;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mt-30 {
+  margin-top: 30px;
+}
+
+.mt-50 {
+  margin-top: 50px;
+}
+
+.mb-5 {
+  margin-bottom: 5px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+.myx-5 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.myx-10 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.myx-20 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.myx-30 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.myx-50 {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+label {
+  font-weight: bold;
+  font-size: 14px;
 }
 
 @media (min-width: 768px) {
