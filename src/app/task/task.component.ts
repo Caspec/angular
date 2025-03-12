@@ -15,16 +15,26 @@ export class TaskComponent {
   @Input() user: User | null = null;
   task: Task[] = DUMMY_TASK;
   editTaskId: string | null = null;
-  searchQuery: string = '';
+  searchTitle: string = '';
+  searchSummary: string = '';
 
   get filteredTasks(): Task[] {
-    return this.task.filter((task) =>
-      task.title.toLowerCase().includes(this.searchQuery.toLowerCase())
-    );
+    return this.task.filter((task) => {
+      const matchesTitle = this.searchTitle
+        ? task.title.toLowerCase().includes(this.searchTitle.toLowerCase())
+        : true;
+
+      const matchesSummary = this.searchSummary
+        ? task.summary.toLowerCase().includes(this.searchSummary.toLowerCase())
+        : true;
+
+      return matchesTitle && matchesSummary;
+    });
   }
 
-  setSearchQuery(query: string) {
-    this.searchQuery = query;
+  setSearchQuery(title: string, summary: string) {
+    this.searchTitle = title;
+    this.searchSummary = summary;
   }
 
   getUserAvatar(avatar: string): string {

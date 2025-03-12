@@ -4,13 +4,22 @@
     <header>
       <menu>
         <div class="search-container">
-          <label for="searchInput">Search</label>
+          <label for="searchInput">Search by Title</label>
           <input
-            #searchInput
-            id="searchInput"
+            #searchTitle
+            id="searchTitle"
             type="text"
-            placeholder="Search tasks..."
-            (input)="setSearchQuery(searchInput.value)"
+            placeholder="Search tasks by title..."
+            (input)="setSearchQuery(searchTitle.value, searchSummary.value)"
+          />
+
+          <label for="searchSummary">Search by Summary</label>
+          <input
+            #searchSummary
+            id="searchSummary"
+            type="text"
+            placeholder="Search tasks by summary..."
+            (input)="setSearchQuery(searchTitle.value, searchSummary.value)"
           />
         </div>
         <div class="myx-30">
