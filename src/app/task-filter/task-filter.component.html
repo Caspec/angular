@@ -1,0 +1,33 @@
+<div class="search-container">
+  <div class="search-field">
+    <label for="searchTitle">Search by Title</label>
+    <input
+      id="searchTitle"
+      type="text"
+      [(ngModel)]="searchTitle"
+      (input)="setSearchQuery()"
+      placeholder="Enter title..."
+    />
+  </div>
+
+  <div class="search-field">
+    <label for="searchSummary">Search by Summary</label>
+    <input
+      id="searchSummary"
+      type="text"
+      [(ngModel)]="searchSummary"
+      (input)="setSearchQuery()"
+      placeholder="Enter summary..."
+    />
+  </div>
+
+  <div class="search-checkbox">
+    <input
+      id="searchCompleted"
+      type="checkbox"
+      [(ngModel)]="searchCompleted"
+      (change)="setSearchQuery()"
+    />
+    <label for="searchCompleted">Completed</label>
+  </div>
+</div>

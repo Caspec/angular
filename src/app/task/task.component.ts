@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { Input } from '@angular/core';
 import { User } from '../user/user.model';
 import { TaskItemComponent } from '../task-item/task-item.component';
+import { TaskFilterComponent } from '../task-filter/task-filter.component';
 import { DUMMY_TASK } from '../tasks';
 import { Task } from '../task/task.model';
 
 @Component({
   selector: 'app-task',
-  imports: [TaskItemComponent],
+  imports: [TaskItemComponent, TaskFilterComponent],
   templateUrl: './task.component.html',
   styleUrl: './task.component.css',
 })
@@ -17,6 +18,7 @@ export class TaskComponent {
   editTaskId: string | null = null;
   searchTitle: string = '';
   searchSummary: string = '';
+  searchCompleted: boolean | null = null;
 
   get filteredTasks(): Task[] {
     return this.task.filter((task) => {
@@ -28,13 +30,22 @@ export class TaskComponent {
         ? task.summary.toLowerCase().includes(this.searchSummary.toLowerCase())
         : true;
 
-      return matchesTitle && matchesSummary;
+      const matchesCompleted = this.searchCompleted
+        ? task.completed === this.searchCompleted
+        : true;
+
+      return matchesTitle && matchesSummary && matchesCompleted;
     });
   }
 
-  setSearchQuery(title: string, summary: string) {
-    this.searchTitle = title;
-    this.searchSummary = summary;
+  updateFilters(filters: {
+    title: string;
+    summary: string;
+    completed: boolean | null;
+  }) {
+    this.searchTitle = filters.title;
+    this.searchSummary = filters.summary;
+    this.searchCompleted = filters.completed;
   }
 
   getUserAvatar(avatar: string): string {

@@ -4,23 +4,9 @@
     <header>
       <menu>
         <div class="search-container">
-          <label for="searchInput">Search by Title</label>
-          <input
-            #searchTitle
-            id="searchTitle"
-            type="text"
-            placeholder="Search tasks by title..."
-            (input)="setSearchQuery(searchTitle.value, searchSummary.value)"
-          />
-
-          <label for="searchSummary">Search by Summary</label>
-          <input
-            #searchSummary
-            id="searchSummary"
-            type="text"
-            placeholder="Search tasks by summary..."
-            (input)="setSearchQuery(searchTitle.value, searchSummary.value)"
-          />
+          <app-task-filter
+            (filtersChanged)="updateFilters($event)"
+          ></app-task-filter>
         </div>
         <div class="myx-30">
           <input #taskTitle type="text" placeholder="New Task" />
@@ -65,6 +51,5 @@
       }
     </ul>
   </section>
-
   }
 </div>
