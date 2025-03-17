@@ -14,6 +14,7 @@ export class TaskItemComponent {
     id: string;
     title: string;
     summary: string;
+    time: string;
     completed: boolean;
   }>();
   editTaskId: string | null = null;
@@ -30,6 +31,7 @@ export class TaskItemComponent {
     taskId: string,
     newTitle: string,
     newSummary: string,
+    newTime: string,
     newCompleted: boolean
   ) {
     if (!newTitle.trim()) return;
@@ -37,6 +39,7 @@ export class TaskItemComponent {
       id: taskId,
       title: newTitle,
       summary: newSummary,
+      time: newTime,
       completed: newCompleted,
     });
     this.editTaskId = null;

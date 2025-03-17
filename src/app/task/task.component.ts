@@ -72,6 +72,7 @@ export class TaskComponent {
     id: string;
     title: string;
     summary: string;
+    time: string;
     completed: boolean;
   }) {
     this.task = this.task.map((task) =>
@@ -80,6 +81,7 @@ export class TaskComponent {
             ...task,
             title: updatedTask.title,
             summary: updatedTask.summary,
+            time: updatedTask.time,
             completed: updatedTask.completed,
           }
         : task

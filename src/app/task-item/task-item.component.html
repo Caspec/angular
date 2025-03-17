@@ -13,6 +13,7 @@
     <div class="mb-5">
       Title: <input #taskTitle type="text" [value]="task.title" /> <br />
       Summary: <input #taskSummary type="text" [value]="task.summary" /> <br />
+      Time: <input #taskTime type="text" [value]="task.time" /> <br />
       Completed:
       <input #taskCompleted type="checkbox" [checked]="task.completed" />
     </div>
@@ -22,6 +23,7 @@
           task.id,
           taskTitle.value,
           taskSummary.value,
+          taskTime.value,
           taskCompleted.checked
         )
       "
