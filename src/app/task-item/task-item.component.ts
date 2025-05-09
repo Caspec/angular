@@ -10,6 +10,7 @@ import { Task } from '../task/task.model';
 export class TaskItemComponent {
   @Input() task: Task | null = null;
   @Output() taskDeleted = new EventEmitter<string>();
+  @Output() taskCompleted = new EventEmitter<string>();
   @Output() editTask = new EventEmitter<{
     id: string;
     title: string;
@@ -25,6 +26,10 @@ export class TaskItemComponent {
 
   toggleEdit(taskId: string) {
     this.editTaskId = this.editTaskId === taskId ? null : taskId;
+  }
+
+  completeTask(taskId: string) {
+    this.taskCompleted.emit(taskId);
   }
 
   saveTask(

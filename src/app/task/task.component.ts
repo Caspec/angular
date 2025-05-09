@@ -68,6 +68,10 @@ export class TaskComponent {
     this.task = this.task.filter((task) => task.id !== taskId);
   }
 
+  completeTask(taskId: string) {
+    this.task = this.task.filter((task) => task.id !== taskId);
+  }
+
   updateTask(updatedTask: {
     id: string;
     title: string;

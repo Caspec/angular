@@ -2,7 +2,10 @@
   <ul>
     @for (user of users; track user.id) {
     <li>
-      <button (click)="onSelectUser(user)">
+      <button
+        [class.active]="selectedUser?.id === user.id"
+        (click)="onSelectUser(user)"
+      >
         <img [src]="getUserAvatar(user.avatar)" alt="{{ user.name }}" />
         <span>{{ user.name }}</span>
       </button>
