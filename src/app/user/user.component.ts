@@ -9,6 +9,7 @@ import { User } from './user.model';
 })
 export class UserComponent {
   @Input() users: User[] = [];
+  @Input() selectedUser!: User | null;
   @Output() select = new EventEmitter<User>();
 
   getUserAvatar(avatar: string): string {
