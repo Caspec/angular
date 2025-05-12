@@ -1,7 +1,7 @@
 <article>
   @if (task) {
   <h2>{{ task.title }}</h2>
-  <time>{{ task.time }}</time>
+  <time>{{ task.time | date }}</time>
   <p>{{ task.summary }}</p>
   <p>{{ task.completed ? "completed" : "not completed" }}</p>
   <div class="actions">

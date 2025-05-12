@@ -57,7 +57,7 @@ export class TaskComponent {
     const newTask = {
       id: (this.task.length + 1).toString(),
       title,
-      time: '12:00',
+      time: '2025-05-12T12:00:00',
       summary: summary,
       completed: completed,
     };
