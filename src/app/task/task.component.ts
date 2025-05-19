@@ -19,6 +19,8 @@ export class TaskComponent {
   searchTitle: string = '';
   searchSummary: string = '';
   searchCompleted: boolean | null = null;
+  pageSize = 4;
+  currentPage = 1;
 
   get filteredTasks(): Task[] {
     return this.task.filter((task) => {
@@ -38,6 +40,20 @@ export class TaskComponent {
     });
   }
 
+  get paginatedTasks(): Task[] {
+    const start = (this.currentPage - 1) * this.pageSize;
+    return this.filteredTasks.slice(start, start + this.pageSize);
+  }
+
+  get totalPages(): number {
+    return Math.ceil(this.filteredTasks.length / this.pageSize);
+  }
+
+  goToPage(page: number) {
+    if (page < 1 || page > this.totalPages) return;
+    this.currentPage = page;
+  }
+
   updateFilters(filters: {
     title: string;
     summary: string;
@@ -46,6 +62,7 @@ export class TaskComponent {
     this.searchTitle = filters.title;
     this.searchSummary = filters.summary;
     this.searchCompleted = filters.completed;
+    this.currentPage = 1;
   }
 
   getUserAvatar(avatar: string): string {
@@ -66,6 +83,13 @@ export class TaskComponent {
 
   deleteTask(taskId: string) {
     this.task = this.task.filter((task) => task.id !== taskId);
+
+    const start = (this.currentPage - 1) * this.pageSize;
+    const tasksOnPage = this.filteredTasks.slice(start, start + this.pageSize);
+
+    if (tasksOnPage.length === 0 && this.currentPage > 1) {
+      this.currentPage--;
+    }
   }
 
   completeTask(taskId: string) {
