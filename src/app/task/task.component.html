@@ -39,8 +39,29 @@
       <h2>{{ user.name }}</h2>
       <img [src]="getUserAvatar(user.avatar)" alt="{{ user.name }}" />
     </header>
+
+    <div class="pagination-controls">
+      <button
+        (click)="goToPage(currentPage - 1)"
+        [disabled]="currentPage === 1"
+      >
+        Prev
+      </button>
+      @if (totalPages > 0) {
+      <span>Page {{ currentPage }} of {{ totalPages }}</span>
+      } @if (totalPages === 0) {
+      <span>No tasks found</span>
+      }
+      <button
+        (click)="goToPage(currentPage + 1)"
+        [disabled]="currentPage === totalPages || filteredTasks.length === 0"
+      >
+        Next
+      </button>
+    </div>
+
     <ul>
-      @for (taskItem of filteredTasks; track taskItem.id) {
+      @for (taskItem of paginatedTasks; track taskItem.id) {
       <li>
         <app-task-item
           [task]="taskItem"
